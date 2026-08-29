@@ -7,6 +7,12 @@
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 
+\setlength{\textfloatsep}{6pt plus 1pt minus 2pt}
+\setlength{\floatsep}{6pt plus 1pt minus 2pt}
+\setlength{\intextsep}{6pt plus 1pt minus 2pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{0pt}
+
 \title{Paired Multimodal Fusion of Sentinel-2 Image Chips and ICESat-2 Photon Features for Remote-Sensing Classification}
 
 \author{Anonymous Authors% <-this % stops a space
@@ -28,7 +34,7 @@ Earth-observation systems routinely produce complementary measurements of the sa
 
 This paper examines that question using real paired Sentinel-2 image chips and ICESat-2 photon-derived features. The empirical goal is to compare lightweight, reproducible fusion operators under a shared training and evaluation protocol. The study is designed around venue-grade reporting: results are tied to saved training artifacts, exported figures are color and publication-oriented, and reproducibility metadata is retained with the manuscript package.
 
-The contributions are threefold. First, we define a paired optical--photon fusion pipeline for 128$\times$128 Sentinel-2 chips and ICESat-2 tabular features. Second, we compare five fusion operators using real completed A6000 runs. Third, we provide a reproducibility package containing the metric table, figure sources, and provenance metadata used to generate this manuscript.
+The contributions are threefold: a paired optical--photon fusion pipeline for 128$\times$128 Sentinel-2 chips and ICESat-2 tabular features; a comparison of five fusion operators using real completed A6000 runs; and a reproducibility package containing metric tables, figure sources, and provenance metadata.
 
 \section{Related Work}
 Multimodal learning in remote sensing has been used to combine complementary sensor streams such as optical, synthetic-aperture radar, lidar, and tabular geophysical measurements. Encoder--decoder image models and residual networks provide common spatial feature extractors, while multilayer perceptrons remain effective for compact tabular representations. Fusion can be performed by concatenating learned features, imposing multiplicative interactions, averaging modality logits or embeddings, or learning gates that adaptively weight modalities. In geoscience settings, the practical value of these methods depends on robust held-out evaluation and careful reporting under class imbalance.
@@ -43,7 +49,7 @@ Fig.~\ref{fig:pipeline} summarizes the paired multimodal pipeline. The image bra
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\linewidth]{figures/fig_pipeline_architecture_bw.pdf}
+    \includegraphics[width=0.92\linewidth]{figures/fig_pipeline_architecture_bw.pdf}
     \caption{Color schematic of the paired Sentinel-2/ICESat-2 fusion pipeline.}
     \label{fig:pipeline}
 \end{figure}
@@ -58,7 +64,8 @@ Table~\ref{tab:main_results} reports the primary held-out results. Fixed-average
 \caption{Held-out results for completed real A6000 fusion runs. Metrics are parsed from saved run artifacts.}
 \label{tab:main_results}
 \centering
-\begin{tabular}{lccccc}
+\footnotesize
+\begin{tabular}{@{}lccccc@{}}
 \toprule
 Variant & Acc. & Macro-F1 & Bal. Acc. & Kappa & ECE \\
 \midrule
@@ -73,7 +80,7 @@ Original gate & 0.9417 & 0.6606 & 0.6621 & 0.6552 & 0.0549 \\
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\linewidth]{figures/fig_results_scores_bw.pdf}
+    \includegraphics[width=0.90\linewidth]{figures/fig_results_scores_bw.pdf}
     \caption{Held-out accuracy and macro-F1 for the five completed primary fusion variants.}
     \label{fig:scores}
 \end{figure}
@@ -82,15 +89,13 @@ Fig.~\ref{fig:scores} visualizes the comparison. The fixed-average model provide
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.82\linewidth]{figures/fig_product_confusion_bw.pdf}
+    \includegraphics[width=0.64\linewidth]{figures/fig_product_confusion_bw.pdf}
     \caption{Row-normalized product-fusion confusion matrix with raw counts.}
     \label{fig:cm_product}
 \end{figure}
 
 \section{Discussion}
-The results suggest that a simple fixed-average fusion operator can outperform more expressive fusion rules on this held-out split. One plausible interpretation is that the averaged representation regularizes the multimodal decision boundary, while product and gated fusion introduce stronger interactions that may be more sensitive to class imbalance or modality-specific noise. This interpretation should be tested further with additional seeds and geographic splits before making broad claims.
-
-The concat result also deserves additional audit because its kappa is much lower than expected given its high accuracy and macro-F1. Rather than suppressing this inconsistency, the manuscript reports it explicitly and preserves the provenance table. This is the right posture for a publishable geoscience manuscript: odd metrics should be explained or rerun, not hidden.
+The results suggest that a simple fixed-average fusion operator can outperform more expressive fusion rules on this held-out split. One plausible interpretation is that the averaged representation regularizes the multimodal decision boundary, while product and gated fusion introduce stronger interactions that may be more sensitive to class imbalance or modality-specific noise. This interpretation should be tested further with additional seeds and geographic splits before making broad claims. The concat result also deserves additional audit because its kappa is much lower than expected given its high accuracy and macro-F1; the manuscript reports this inconsistency explicitly rather than hiding it.
 
 \section{Conclusion}
 This paper presents a reproducible paired Sentinel-2/ICESat-2 multimodal classification study designed for IEEE TGRS-style reporting. Five fusion operators were evaluated using real completed A6000 outputs. Fixed-average fusion currently gives the strongest held-out result, with 0.9567 accuracy and 0.7408 macro-F1. The main scientific takeaway is that fusion choice materially affects class-sensitive metrics, and that macro-F1, balanced accuracy, kappa, calibration, and confusion matrices should accompany accuracy in remote-sensing multimodal evaluation.
