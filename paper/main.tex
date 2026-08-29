@@ -6,6 +6,8 @@
 \usepackage{array}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
 
 \setlength{\textfloatsep}{6pt plus 1pt minus 2pt}
 \setlength{\floatsep}{6pt plus 1pt minus 2pt}
@@ -49,8 +51,30 @@ Fig.~\ref{fig:pipeline} summarizes the paired multimodal pipeline. The image bra
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.92\linewidth]{figures/fig_pipeline_architecture_bw.pdf}
-    \caption{Color schematic of the paired Sentinel-2/ICESat-2 fusion pipeline.}
+    \resizebox{\linewidth}{!}{%
+    \begin{tikzpicture}[
+        font=\scriptsize,
+        box/.style={draw=#1, rounded corners=3pt, line width=0.8pt, fill=#1!6,
+                    minimum width=2.15cm, minimum height=0.70cm, align=center},
+        arrow/.style={-{Stealth[length=7pt,width=8pt]}, line width=1.0pt, draw=black}
+    ]
+    \node[box=blue] (s2) at (0,1.0) {\textbf{Sentinel-2 RGB}\\128 x 128 chips};
+    \node[box=green!70!black] (is2) at (0,-1.0) {\textbf{ICESat-2 photons}\\10 tabular features};
+    \node[box=cyan!80!black] (img) at (3.1,1.0) {\textbf{Image branch}\\spatial encoder};
+    \node[box=green!70!black] (pho) at (3.1,-1.0) {\textbf{Photon branch}\\MLP + dropout};
+    \node[box=orange!90!black, minimum width=2.45cm] (fus) at (6.25,0) {\textbf{Fusion operator}\\concat / product\\average / gate};
+    \node[box=purple, minimum width=2.15cm] (clf) at (9.2,0) {\textbf{Classifier head}\\3-class logits};
+    \node[box=red!75!black, minimum width=1.65cm] (out) at (11.75,0) {\textbf{Output}\\class map};
+    \draw[arrow] (s2.east) -- (img.west);
+    \draw[arrow] (is2.east) -- (pho.west);
+    \draw[arrow] (img.east) -- (fus.west);
+    \draw[arrow] (pho.east) -- (fus.west);
+    \draw[arrow] (fus.east) -- (clf.west);
+    \draw[arrow] (clf.east) -- (out.west);
+    \node[align=center, font=\tiny] at (6.25,-1.45)
+        {Held-out evaluation: accuracy, macro-F1, balanced accuracy, kappa, calibration, confusion matrix};
+    \end{tikzpicture}}
+    \caption{Color schematic of the paired Sentinel-2/ICESat-2 fusion pipeline with explicit directional arrows.}
     \label{fig:pipeline}
 \end{figure}
 
