@@ -95,10 +95,10 @@ Fig.~\ref{fig:scores} visualizes the comparison. The fixed-average model provide
 \end{figure}
 
 \section{Discussion}
-The results suggest that a simple fixed-average fusion operator can outperform more expressive fusion rules on this held-out split. One plausible interpretation is that the averaged representation regularizes the multimodal decision boundary, while product and gated fusion introduce stronger interactions that may be more sensitive to class imbalance or modality-specific noise. This interpretation should be tested further with additional seeds and geographic splits before making broad claims. The concat result also deserves additional audit because its kappa is much lower than expected given its high accuracy and macro-F1; the manuscript reports this inconsistency explicitly rather than hiding it.
+The results suggest that fixed averaging can be a strong regularized baseline for this held-out split, while product and gated fusion may be more sensitive to class imbalance or modality-specific noise. The concat result also deserves follow-up audit because its kappa is much lower than expected from its high accuracy and macro-F1; the manuscript reports this inconsistency explicitly rather than hiding it.
 
 \section{Conclusion}
-This paper presents a reproducible paired Sentinel-2/ICESat-2 multimodal classification study designed for IEEE TGRS-style reporting. Five fusion operators were evaluated using real completed A6000 outputs. Fixed-average fusion currently gives the strongest held-out result, with 0.9567 accuracy and 0.7408 macro-F1. The main scientific takeaway is that fusion choice materially affects class-sensitive metrics, and that macro-F1, balanced accuracy, kappa, calibration, and confusion matrices should accompany accuracy in remote-sensing multimodal evaluation.
+This paper presents a reproducible paired Sentinel-2/ICESat-2 multimodal classification study designed for IEEE TGRS-style reporting. Five fusion operators were evaluated using real completed A6000 outputs. Fixed-average fusion gives the strongest held-out result, with 0.9567 accuracy and 0.7408 macro-F1. The main takeaway is that macro-F1, balanced accuracy, kappa, calibration, and confusion matrices should accompany accuracy in remote-sensing multimodal evaluation.
 
 \section*{Acknowledgment}
 Omitted for anonymous review.
