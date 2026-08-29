@@ -1,0 +1,69 @@
+{
+  "created_at": "2026-08-29T07:57:47.153496+00:00",
+  "source_system": "jupyter.knoxds.org /net/home/chatran/research-seminar",
+  "source_files": [
+    "runs/*/test_metrics.json",
+    "runs/*/training_history.csv",
+    "real_paired/preparation_manifest.csv",
+    "real_paired/preparation_summary.json"
+  ],
+  "metric_scope": "complete branch in test_metrics.json for the five complete A6000 variants",
+  "note": "Metrics are copied from live Jupyter artifact extraction in this Codex session. No synthetic metrics were generated.",
+  "metrics": [
+    {
+      "variant": "fixed_average",
+      "accuracy": 0.9567,
+      "macro_f1": 0.7408,
+      "balanced_accuracy": 0.7143,
+      "kappa": 0.7272,
+      "ece_10bin": 0.0344,
+      "epochs": 50,
+      "final_val_accuracy": 0.9408,
+      "final_val_macro_f1": 0.5494
+    },
+    {
+      "variant": "concat",
+      "accuracy": 0.9464,
+      "macro_f1": 0.691,
+      "balanced_accuracy": 0.6842,
+      "kappa": 0.0492,
+      "ece_10bin": 0.562,
+      "epochs": 50,
+      "final_val_accuracy": 0.9469,
+      "final_val_macro_f1": 0.562
+    },
+    {
+      "variant": "availability_aware_gate",
+      "accuracy": 0.9437,
+      "macro_f1": 0.6523,
+      "balanced_accuracy": 0.6399,
+      "kappa": 0.6513,
+      "ece_10bin": 0.0519,
+      "epochs": 50,
+      "final_val_accuracy": 0.9436,
+      "final_val_macro_f1": 0.5806
+    },
+    {
+      "variant": "product",
+      "accuracy": 0.9422,
+      "macro_f1": 0.6477,
+      "balanced_accuracy": 0.6291,
+      "kappa": 0.6329,
+      "ece_10bin": 0.0544,
+      "epochs": 50,
+      "final_val_accuracy": 0.9485,
+      "final_val_macro_f1": 0.5783
+    },
+    {
+      "variant": "original_gate",
+      "accuracy": 0.9417,
+      "macro_f1": 0.6606,
+      "balanced_accuracy": 0.6621,
+      "kappa": 0.6552,
+      "ece_10bin": 0.0549,
+      "epochs": 50,
+      "final_val_accuracy": 0.9402,
+      "final_val_macro_f1": 0.5726
+    }
+  ]
+}
