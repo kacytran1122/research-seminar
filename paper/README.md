@@ -6,4 +6,4 @@ Main source file: `main.tex`
 
 Compiled PDF: `research_seminar_tgrs_manuscript.pdf`
 
-Figures are black-and-white vector SVGs for IEEE-style review. Numerical values are copied from the real Jupyter training artifacts extracted from `/net/home/chatran/research-seminar`; no mock metrics are included.
+Figures are color vector SVGs/PDF-rendered graphics for IEEE-style online review, with careful spacing checks to avoid overlap or spillover. Numerical values are copied from the real Jupyter training artifacts extracted from `/net/home/chatran/research-seminar`; no mock metrics are included.
