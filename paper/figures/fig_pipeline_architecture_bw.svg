@@ -1,30 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="370" viewBox="0 0 980 370">
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="380" viewBox="0 0 1060 380">
 <rect width="100%" height="100%" fill="white"/>
-<style>text{font-family:Arial,Helvetica,sans-serif;fill:#000} .box{fill:#fff;stroke:#000;stroke-width:2} .thin{stroke:#000;stroke-width:1} .dash{stroke:#000;stroke-width:1;stroke-dasharray:4 3} .bar{fill:#000} .hatch{fill:#fff;stroke:#000;stroke-width:1.5} </style>
-<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#000"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#111827} .grid{stroke:#d1d5db;stroke-width:1;stroke-dasharray:4 3}</style>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#374151"/></marker></defs>
 <text x="45" y="42" font-size="22" font-weight="700">Paired multimodal remote-sensing fusion pipeline</text>
-<rect class="box" x="45" y="105" width="165" height="75" rx="8"/>
-<text x="127" y="135" text-anchor="middle" font-size="14">Sentinel-2 RGB</text>
-<text x="127" y="153" text-anchor="middle" font-size="14">128x128 chips</text>
-<rect class="box" x="45" y="250" width="165" height="75" rx="8"/>
-<text x="127" y="280" text-anchor="middle" font-size="14">ICESat-2 photons</text>
-<text x="127" y="298" text-anchor="middle" font-size="14">10 tabular features</text>
-<rect class="box" x="285" y="105" width="165" height="75" rx="8"/>
-<text x="367" y="135" text-anchor="middle" font-size="14">Image branch</text>
-<text x="367" y="153" text-anchor="middle" font-size="14">spatial encoder</text>
-<rect class="box" x="285" y="250" width="165" height="75" rx="8"/>
-<text x="367" y="280" text-anchor="middle" font-size="14">Photon branch</text>
-<text x="367" y="298" text-anchor="middle" font-size="14">MLP + dropout</text>
-<rect class="box" x="530" y="178" width="165" height="75" rx="8"/>
-<text x="612" y="208" text-anchor="middle" font-size="14">Fusion operator</text>
-<text x="612" y="226" text-anchor="middle" font-size="14">concat / product / average / gate</text>
-<rect class="box" x="775" y="178" width="165" height="75" rx="8"/>
-<text x="857" y="208" text-anchor="middle" font-size="14">Classifier head</text>
-<text x="857" y="226" text-anchor="middle" font-size="14">3-class output</text>
-<line x1="210" y1="142" x2="285" y2="142" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
-<line x1="210" y1="287" x2="285" y2="287" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
-<line x1="450" y1="142" x2="530" y2="205" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
-<line x1="450" y1="287" x2="530" y2="215" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
-<line x1="695" y1="215" x2="775" y2="215" stroke="#000" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="530" y="330" font-size="13">Held-out evaluation: accuracy, macro-F1, balanced accuracy, kappa, calibration, confusion matrix</text>
+<rect x="45" y="105" width="190" height="82" rx="12" fill="#f8fafc" stroke="#2563eb" stroke-width="4"/>
+<text x="140" y="137" text-anchor="middle" font-size="14" font-weight="700">Sentinel-2 RGB</text>
+<text x="140" y="163" text-anchor="middle" font-size="13">128 x 128 chips</text>
+<rect x="45" y="250" width="190" height="82" rx="12" fill="#f8fafc" stroke="#16a34a" stroke-width="4"/>
+<text x="140" y="282" text-anchor="middle" font-size="14" font-weight="700">ICESat-2 photons</text>
+<text x="140" y="308" text-anchor="middle" font-size="13">10 tabular features</text>
+<rect x="305" y="105" width="190" height="82" rx="12" fill="#f8fafc" stroke="#0ea5e9" stroke-width="4"/>
+<text x="400" y="137" text-anchor="middle" font-size="14" font-weight="700">Image branch</text>
+<text x="400" y="163" text-anchor="middle" font-size="13">spatial encoder</text>
+<rect x="305" y="250" width="190" height="82" rx="12" fill="#f8fafc" stroke="#22c55e" stroke-width="4"/>
+<text x="400" y="282" text-anchor="middle" font-size="14" font-weight="700">Photon branch</text>
+<text x="400" y="308" text-anchor="middle" font-size="13">MLP + dropout</text>
+<rect x="585" y="178" width="190" height="82" rx="12" fill="#f8fafc" stroke="#f97316" stroke-width="4"/>
+<text x="680" y="210" text-anchor="middle" font-size="14" font-weight="700">Fusion operator</text>
+<text x="680" y="236" text-anchor="middle" font-size="13">concat / product / average / gate</text>
+<rect x="835" y="178" width="190" height="82" rx="12" fill="#f8fafc" stroke="#9333ea" stroke-width="4"/>
+<text x="930" y="210" text-anchor="middle" font-size="14" font-weight="700">Classifier head</text>
+<text x="930" y="236" text-anchor="middle" font-size="13">3-class output</text>
+<line x1="235" y1="146" x2="305" y2="146" stroke="#374151" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="235" y1="291" x2="305" y2="291" stroke="#374151" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="495" y1="146" x2="585" y2="219" stroke="#374151" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="495" y1="291" x2="585" y2="219" stroke="#374151" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="775" y1="219" x2="835" y2="219" stroke="#374151" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="585" y="340" font-size="13">Held-out evaluation: accuracy, macro-F1, balanced accuracy, kappa, calibration, confusion matrix</text>
 </svg>
