@@ -26,7 +26,7 @@ Remote sensing, Sentinel-2, ICESat-2, multimodal fusion, geoscience machine lear
 \section{Introduction}
 Earth-observation systems routinely produce complementary measurements of the same surface process. Optical multispectral imagery provides spatially dense context, while photon-counting lidar supplies sparse structural or elevation-linked measurements. A central modeling question is therefore not only whether each modality is informative, but how the modalities should be fused when their sampling patterns, noise characteristics, and missingness differ.
 
-This paper examines that question using real paired Sentinel-2 image chips and ICESat-2 photon-derived features. The empirical goal is to compare lightweight, reproducible fusion operators under a shared training and evaluation protocol. The study is designed around venue-grade reporting: results are tied to saved training artifacts, exported figures are monochrome and publication-oriented, and reproducibility metadata is retained with the manuscript package.
+This paper examines that question using real paired Sentinel-2 image chips and ICESat-2 photon-derived features. The empirical goal is to compare lightweight, reproducible fusion operators under a shared training and evaluation protocol. The study is designed around venue-grade reporting: results are tied to saved training artifacts, exported figures are color and publication-oriented, and reproducibility metadata is retained with the manuscript package.
 
 The contributions are threefold. First, we define a paired optical--photon fusion pipeline for 128$\times$128 Sentinel-2 chips and ICESat-2 tabular features. Second, we compare five fusion operators using real completed A6000 runs. Third, we provide a reproducibility package containing the metric table, figure sources, and provenance metadata used to generate this manuscript.
 
@@ -43,8 +43,8 @@ Fig.~\ref{fig:pipeline} summarizes the paired multimodal pipeline. The image bra
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\linewidth]{figures/fig_pipeline_architecture_bw.svg}
-    \caption{Black-and-white schematic of the paired Sentinel-2/ICESat-2 fusion pipeline.}
+    \includegraphics[width=\linewidth]{figures/fig_pipeline_architecture_bw.pdf}
+    \caption{Color schematic of the paired Sentinel-2/ICESat-2 fusion pipeline.}
     \label{fig:pipeline}
 \end{figure}
 
@@ -62,9 +62,9 @@ Table~\ref{tab:main_results} reports the primary held-out results. Fixed-average
 \toprule
 Variant & Acc. & Macro-F1 & Bal. Acc. & Kappa & ECE \\
 \midrule
-Fixed average & 0.9567 & 0.7408 & 0.7143 & 0.7272 & 0.0344 \\
+Fixed avg. & 0.9567 & 0.7408 & 0.7143 & 0.7272 & 0.0344 \\
 Concat & 0.9464 & 0.6910 & 0.6842 & 0.0492 & 0.5620 \\
-Availability-aware gate & 0.9437 & 0.6523 & 0.6399 & 0.6513 & 0.0519 \\
+Avail.-aware gate & 0.9437 & 0.6523 & 0.6399 & 0.6513 & 0.0519 \\
 Product & 0.9422 & 0.6477 & 0.6291 & 0.6329 & 0.0544 \\
 Original gate & 0.9417 & 0.6606 & 0.6621 & 0.6552 & 0.0549 \\
 \bottomrule
@@ -73,7 +73,7 @@ Original gate & 0.9417 & 0.6606 & 0.6621 & 0.6552 & 0.0549 \\
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\linewidth]{figures/fig_results_scores_bw.svg}
+    \includegraphics[width=\linewidth]{figures/fig_results_scores_bw.pdf}
     \caption{Held-out accuracy and macro-F1 for the five completed primary fusion variants.}
     \label{fig:scores}
 \end{figure}
@@ -82,7 +82,7 @@ Fig.~\ref{fig:scores} visualizes the comparison. The fixed-average model provide
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.82\linewidth]{figures/fig_product_confusion_bw.svg}
+    \includegraphics[width=0.82\linewidth]{figures/fig_product_confusion_bw.pdf}
     \caption{Row-normalized product-fusion confusion matrix with raw counts.}
     \label{fig:cm_product}
 \end{figure}

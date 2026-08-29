@@ -1,0 +1,37 @@
+name: Build IEEE paper PDF
+
+on:
+  push:
+    paths:
+      - paper/**
+      - .github/workflows/build-paper.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-paper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile IEEEtran manuscript
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: paper
+          latexmk_use_lualatex: false
+          args: -pdf -interaction=nonstopmode -halt-on-error -file-line-error
+
+      - name: Copy compiled PDF
+        run: cp paper/main.pdf paper/research_seminar_tgrs_manuscript_ieee.pdf
+
+      - name: Commit compiled IEEE PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Build IEEEtran manuscript PDF
+          file_pattern: paper/research_seminar_tgrs_manuscript_ieee.pdf
+          commit_user_name: Anonymous Authors
+          commit_user_email: anonymous@example.com
