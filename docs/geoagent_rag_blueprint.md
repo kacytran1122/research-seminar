@@ -1366,19 +1366,10 @@ Best-fit venues depend on final implementation:
 - **WACV**: possible if image-chip retrieval and vision-language grounding become central.
 - **ACL / EMNLP / NAACL**: possible only if the RAG method itself is novel beyond geospatial application.
 
-Recommended first target:
+Recommended target:
 
-> **IGARSS or IEEE TGRS**, depending on how complete the evaluation becomes.
-
-## Suggested Paper Title Options
-
-1. **GeoAgent-RAG: Agentic Retrieval-Augmented Planning for Reproducible Remote-Sensing Experiments**
-2. **GeoAgent-RAG: Evidence-Grounded Experiment Planning for Multimodal Remote-Sensing Models**
-3. **Artifact-Grounded Retrieval-Augmented Planning for Reproducible Geoscience Machine Learning**
-4. **From Metrics to Next Experiments: Agentic RAG for Remote-Sensing Model Audits**
-5. **Retrieval-Augmented Failure Analysis and Experiment Planning for Sentinel-2/ICESat-2 Fusion Models**
+> **IGARSS**.
 
 ## One-Sentence Summary
 
 GeoAgent-RAG is a geospatial research assistant that retrieves from real remote-sensing experiment artifacts, verifies scientific claims, explains model failures, and proposes reproducible next experiments without fabricating results.
-
